@@ -1,0 +1,22 @@
+# robots.txt - إذاعة القرآن الكريم من القاهرة أون لاين
+User-agent: *
+Allow: /
+
+# السماح لعناكب محركات البحث والذكاء الاصطناعي بالأرشفة الكاملة
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# رابط خريطة الموقع
+Sitemap: https://yourdomain.com/sitemap.xml
