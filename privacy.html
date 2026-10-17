@@ -4,26 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>سياسة الخصوصية وشروط الاستخدام | إذاعة القرآن الكريم</title>
+  <meta name="description" content="سياسة الخصوصية وشروط استخدام خدمة الاستماع لإذاعة القرآن الكريم من القاهرة.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://yourdomain.com/privacy.html">
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; background: #f8faf9; color: #1f2937; line-height: 1.8; margin:0; padding:0; }
-    header { background: #044343; color: #fff; padding: 1.2rem; border-bottom: 3px solid #d4af37; }
+    :root {
+      --primary: #044343;
+      --accent: #d4af37;
+      --bg: #f8faf9;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --text-muted: #374151;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+    header { background: var(--primary); color: #fff; padding: 1.2rem; border-bottom: 3px solid var(--accent); }
     .nav-container { max-width: 900px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
-    .logo { color: #f3e5ab; text-decoration: none; font-weight: bold; font-size: 1.2rem; }
-    nav a { color: #fff; text-decoration: none; margin-right: 1rem; }
-    .content { max-width: 800px; margin: 2.5rem auto; padding: 2rem; background: #fff; border-radius: 12px; border: 1px solid #e5e7eb; }
-    h1 { color: #044343; margin-bottom: 1rem; font-size: 1.6rem; }
-    h2 { color: #044343; margin-top: 1.5rem; font-size: 1.2rem; }
-    footer { text-align: center; margin-top: 3rem; padding: 1rem; color: #6b7280; font-size: 0.85rem; }
+    .logo { color: #f3e5ab; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+    nav a { color: #fff; text-decoration: none; margin-right: 1.2rem; font-weight: 500; }
+    nav a:hover { color: var(--accent); }
+    .content { max-width: 800px; margin: 2.5rem auto; padding: 2.5rem 2rem; background: var(--surface); border-radius: 16px; border: 1px solid var(--border); }
+    h1 { color: var(--primary); margin-bottom: 1.2rem; font-size: 1.8rem; }
+    h2 { color: var(--primary); margin-top: 1.8rem; margin-bottom: 0.6rem; font-size: 1.25rem; border-right: 4px solid var(--accent); padding-right: 10px; }
+    p { margin-bottom: 1.1rem; color: var(--text-muted); text-align: justify; }
+    footer { text-align: center; margin-top: 3rem; padding: 1.5rem; color: var(--text-muted); font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <header>
     <div class="nav-container">
-      <a href="index.html" class="logo">📻 إذاعة القرآن الكريم</a>
-      <nav>
-        <a href="/">الرئيسية</a>
+      <a href="/" class="logo">
+        <span aria-hidden="true">📻</span>
+        <span>إذاعة القرآن الكريم</span>
+      </a>
+      <nav aria-label="روابط الموقع الرئيسية">
+        <a href="index.html">الرئيسية</a>
         <a href="about.html">عن الإذاعة</a>
         <a href="privacy.html">سياسة الخصوصية</a>
       </nav>
@@ -32,19 +48,19 @@
 
   <main class="content">
     <h1>سياسة الخصوصية وشروط الاستخدام</h1>
-    <p>توضح هذه الصفحة كيفية تعامل الموقع مع بيانات الزوار، مع التأكيد على التزامنا الكامل بحماية خصوصيتك وأمان بياناتك وفقاً لأفضل المعايير العالمية.</p>
+    <p>توضح هذه السياسة طبيعة تعامل المنصة مع بيانات الزوار والتزامنا المطلق بالحفاظ على خصوصيتك وأمان تجربتك الرقمية.</p>
 
-    <h2>1. جمع البيانات والمعلومات الشخصية</h2>
-    <p>نحن لا نطلب منك تسجيل حساب أو إدخال أي بيانات شخصية (مثل الاسم أو البريد الإلكتروني) للاستماع للبث. الموقع متاح للجميع مجاناً ومباشرة.</p>
+    <h2>1. جمع البيانات الشخصية</h2>
+    <p>لا تتطلب المنصة أي نوع من أنواع التسجيل أو جمع بيانات شخصية حساسة مثل البريد الإلكتروني، الأسماء، أو أرقام الهواتف. الخدمة متاحة ومفتوحة لجميع المستخدمين مباشرة دون شروط.</p>
 
-    <h2>2. ملفات تعريف الارتباط (Cookies) وتخزين التفضيلات</h2>
-    <p>قد يستخدم الموقع التخزين المحلي (Local Storage) لمتصفحك فقط لحفظ إعدادات الصوت ومؤقت النوم المفضل لديك لتقديم تجربة تصفح متناسقة وسريعة.</p>
+    <h2>2. ملفات تعريف الارتباط وتفضيلات المتصفح</h2>
+    <p>قد يستخدم الموقع التخزين المحلي (Local Storage) لمتصفحك فقط لحفظ خيارات الصوت أو توقيت مؤقت الإيقاف دون إرسال هذه البيانات إلى خوادم خارجية، مما يضمن سرعة وسلاسة الاستخدام في زياراتك المتكررة.</p>
 
-    <h2>3. خدمات الطرف الثالث وتحليلات الزوار</h2>
-    <p>قد نستخدم مستقبلاً خدمات قياس حركة المرور مثل Google Analytics لفهم سلوك التصفح وتحسين أداء السيرفرات وجودة البث الصوتي دون الكشف عن هويات الأفراد.</p>
+    <h2>3. خدمات التحليل والطرف الثالث</h2>
+    <p>لضمان استقرار الخوادم ومتابعة كفاءة البث، قد نستخدم أدوات قياس فنية قياسية مثل Google Search Console دون انتهاك خصوصية هويات الزوار الفردية.</p>
 
-    <h2>4. الاتصال بنا</h2>
-    <p>إذا كانت لديك أي استفسارات أو ملاحظات بشأن سياسة الخصوصية، يسعدنا تواصلكم عبر البريد الإلكتروني الرسمي للموقع.</p>
+    <h2>4. التعديلات على السياسة</h2>
+    <p>نحتفظ بالحق في تحديث بنود سياسة الخصوصية هذه دورياً بما يتوافق مع التحديثات التقنية والقوانين المنظمة للويب، ويتم نشر أي تحديث عبر هذه الصفحة مباشرة.</p>
   </main>
 
   <footer>
