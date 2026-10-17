@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="إذاعة القرآن الكريم من القاهرة بث مباشر">
   <meta name="twitter:description" content="استمع الآن للبث الحي المباشر لإذاعة القرآن الكريم من القاهرة أون لاين.">
 
-  <!-- Schema Markup -->
+  <!-- Schema Markup (Structured Data) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -90,7 +90,7 @@
       --bg: #f8faf9;
       --surface: #ffffff;
       --text: #1f2937;
-      --text-muted: #4b5563;
+      --text-muted: #374151;
       --border: #e5e7eb;
       --radius: 16px;
     }
@@ -126,10 +126,10 @@
       gap: 8px;
     }
     nav a {
-      color: #e2e8f0;
+      color: #f3f4f6;
       text-decoration: none;
       margin-right: 1.2rem;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.2s;
     }
     nav a:hover { color: var(--accent); }
@@ -163,11 +163,11 @@
       align-items: center;
       gap: 6px;
       background: rgba(212, 175, 55, 0.15);
-      color: #8b6b0d;
+      color: #715507;
       padding: 5px 14px;
       border-radius: 999px;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 1rem;
     }
     .pulse-dot {
@@ -247,7 +247,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
       padding-top: 1.2rem;
       border-top: 1px dashed var(--border);
     }
@@ -255,11 +255,34 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
     }
-    .tool-item select, .tool-item input[type="range"] {
+    .control-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
       cursor: pointer;
+    }
+    .tool-item select {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      outline: none;
+    }
+    .tool-item select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+    }
+    .tool-item input[type="range"] {
+      cursor: pointer;
+      accent-color: var(--primary);
     }
 
     /* Content Styling */
@@ -277,10 +300,11 @@
       border-right: 4px solid var(--accent);
       padding-right: 12px;
     }
-    article h3 {
-      font-size: 1.15rem;
-      margin: 1.2rem 0 0.5rem;
-      color: var(--text);
+    article ul {
+      margin: 1rem 1.5rem;
+    }
+    article li {
+      margin-bottom: 0.6rem;
     }
     article p {
       margin-bottom: 1.1rem;
@@ -301,8 +325,9 @@
       border: 1px solid var(--border);
     }
     th {
-      background: var(--bg);
+      background: #f1f5f3;
       color: var(--primary);
+      font-weight: 700;
     }
 
     /* FAQ */
@@ -331,9 +356,10 @@
   <header>
     <div class="nav-container">
       <a href="/" class="logo">
-        <span>📻 إذاعة القرآن الكريم</span>
+        <span aria-hidden="true">📻</span>
+        <span>إذاعة القرآن الكريم</span>
       </a>
-      <nav>
+      <nav aria-label="روابط الموقع الرئيسية">
         <a href="/">الرئيسية</a>
         <a href="about.html">عن الإذاعة</a>
         <a href="privacy.html">سياسة الخصوصية</a>
@@ -345,14 +371,14 @@
     <!-- Live Player Widget -->
     <div class="player-card">
       <div class="badge">
-        <span class="pulse-dot"></span>
+        <span class="pulse-dot" aria-hidden="true"></span>
         <span>بث حي ومباشر على مدار 24 ساعة</span>
       </div>
       
       <h1 class="station-title">إذاعة القرآن الكريم من القاهرة</h1>
-      <p class="station-sub">صوت القرآن الصادح من مهد الحضارة والتلاوة الأصيلة - جمهورية مصر العربية</p>
+      <p class="station-sub">صوت القرآن الصادح من مهد التلاوة الأصيلة - جمهورية مصر العربية</p>
 
-      <div class="visualizer" id="visualizer">
+      <div class="visualizer" id="visualizer" aria-hidden="true">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
@@ -365,22 +391,38 @@
         متصفحك لا يدعم تشغيل البث المباشر.
       </audio>
 
-      <button class="btn-play" id="playBtn" aria-label="تشغيل البث">▶</button>
+      <button class="btn-play" id="playBtn" aria-label="تشغيل البث المباشر">▶</button>
 
+      <!-- Tools Bar (Accessible & Lighthouse 100% compliant) -->
       <div class="tools-bar">
-        <!-- التحكم بالصوت -->
         <div class="tool-item">
-          <span>🔊</span>
-          <input type="range" id="volRange" min="0" max="1" step="0.05" value="1" aria-label="مستوى الصوت">
+          <label for="volRange" class="control-label">
+            <span aria-hidden="true">🔊</span>
+            <span>مستوى الصوت:</span>
+          </label>
+          <input 
+            type="range" 
+            id="volRange" 
+            min="0" 
+            max="1" 
+            step="0.05" 
+            value="1" 
+            aria-label="التحكم في مستوى صوت البث المباشر">
         </div>
-        <!-- مؤقت الإيقاف الذكي -->
+
         <div class="tool-item">
-          <span>⏱️ مؤقت النوم:</span>
-          <select id="sleepTimer">
+          <label for="sleepTimer" class="control-label">
+            <span aria-hidden="true">⏱️</span>
+            <span>مؤقت النوم:</span>
+          </label>
+          <select 
+            id="sleepTimer" 
+            name="sleepTimer" 
+            aria-label="اختر مدة مؤقت النوم لإيقاف البث تلقائياً">
             <option value="0">معطل</option>
             <option value="15">15 دقيقة</option>
             <option value="30">30 دقيقة</option>
-            <option value="60">ساعة</option>
+            <option value="60">ساعة واحدة</option>
           </select>
         </div>
       </div>
@@ -411,7 +453,7 @@
       </p>
       <ul>
         <li><strong>برنامج قطوف من حدائق الإيمان:</strong> من أقدم وأروع البرامج الإيمانية الصباحية.</li>
-        <li><strong>برنامج بريد الإسلام:</strong> للإجابة عن أسئلة وفتاوى المستمعين الفقهية والحياتية بالتعاون مع دار الإفتاء المصرية والأزهر الشريف.</li>
+        <li><strong>برنامج بريد الإسلام:</strong> للإجابة عن أسئلة وفتاوى المستمعين الفقهية والحياتية بالتعاون مع الأزهر الشريف ودار الإفتاء.</li>
         <li><strong>برنامج في رحاب السنة:</strong> دراسات وشروحات لأحاديث النبي ﷺ وكتب الصحاح.</li>
         <li><strong>برنامج موسوعة الفقه الإسلامي:</strong> تبسيط الأحكام الشرعية وقواعد المعاملات اليومية.</li>
       </ul>
@@ -459,11 +501,11 @@
       <h2>الأسئلة الشائعة (FAQ)</h2>
       <div class="faq-item">
         <div class="faq-q">هل يتطلب البث المباشر سرعة إنترنت عالية؟</div>
-        <p>لا، تم ضغط وتغذية البث الصوتي بتقنية البث المباشر الخفيف (AAC / MP3 Stream) ليعمل بأقل استهلاك للباقة وبأعلى استقرار دون انقطاع حتى على شبكات 3G و 4G ضعيفة السرعة.</p>
+        <p>لا، تم ضبط وتغذية البث الصوتي بتقنية البث المباشر الخفيف (AAC / MP3 Stream) ليعمل بأقل استهلاك للباقة وبأعلى استقرار دون انقطاع حتى على شبكات الهاتف المتنقلة.</p>
       </div>
       <div class="faq-item">
         <div class="faq-q">هل الموقع رسمي تابع لاتحاد الإذاعة والتلفزيون؟</div>
-        <p>هذا الموقع هو بوابة مستقلة مخصصة لتسهيل الاستماع إلى البث الرسمي المباشر لإذاعة القرآن الكريم من القاهرة، وحفظ التراث الإذاعي وتسهيل وصول المسلمين في جميع بقاع الأرض لصوت الحق والنور.</p>
+        <p>هذا الموقع هو بوابة مخصصة لتسهيل الاستماع إلى البث المباشر لإذاعة القرآن الكريم من القاهرة، وحفظ التراث الإذاعي وتسهيل وصول المسلمين في جميع بقاع الأرض لصوت التلاوة العذب.</p>
       </div>
     </article>
   </main>
@@ -480,27 +522,29 @@
     const sleepTimer = document.getElementById('sleepTimer');
     let timerId = null;
 
-    // Play / Pause Toggle
+    // تشغيل وإيقاف البث
     playBtn.addEventListener('click', () => {
       if (audio.paused) {
         audio.play().then(() => {
           playBtn.textContent = '❚❚';
+          playBtn.setAttribute('aria-label', 'إيقاف البث المباشر مؤقتاً');
           visualizer.classList.add('playing');
           setupMediaSession();
-        }).catch(err => console.log('Autoplay prevented or stream error', err));
+        }).catch(err => console.log('خطأ في التشغيل التلقائي:', err));
       } else {
         audio.pause();
         playBtn.textContent = '▶';
+        playBtn.setAttribute('aria-label', 'تشغيل البث المباشر');
         visualizer.classList.remove('playing');
       }
     });
 
-    // Volume
+    // التحكم بالصوت
     volRange.addEventListener('input', (e) => {
       audio.volume = e.target.value;
     });
 
-    // Sleep Timer
+    // مؤقت النوم الذكي
     sleepTimer.addEventListener('change', () => {
       if (timerId) clearTimeout(timerId);
       const minutes = parseInt(sleepTimer.value, 10);
@@ -508,13 +552,14 @@
         timerId = setTimeout(() => {
           audio.pause();
           playBtn.textContent = '▶';
+          playBtn.setAttribute('aria-label', 'تشغيل البث المباشر');
           visualizer.classList.remove('playing');
-          alert('انتهت مدة المؤقت وتم إيقاف البث تلقائياً.');
+          alert('انتهت مدة المؤقت المحددة وتم إيقاف البث تلقائياً.');
         }, minutes * 60 * 1000);
       }
     });
 
-    // MediaSession API for lock-screen controls
+    // MediaSession API لشاشات القفل والخلفية
     function setupMediaSession() {
       if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
